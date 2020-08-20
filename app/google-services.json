@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "693539924409",
+    "firebase_url": "https://talk-2-me-app.firebaseio.com",
+    "project_id": "talk-2-me-app",
+    "storage_bucket": "talk-2-me-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693539924409:android:0d0b2c03687616ed832e68",
+        "android_client_info": {
+          "package_name": "com.example.talk2me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693539924409-qe4n1sj1dmmj1l41gonr5ip1oprjc8gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.talk2me",
+            "certificate_hash": "224949c3f8f65f80f89c589ed99be28182ee98d9"
+          }
+        },
+        {
+          "client_id": "693539924409-te63grq3nhhhh8qp8om156nbclk6fbtv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7kbdMXAon0Ej1joMP0V6-7Maq2xWH2kA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693539924409-te63grq3nhhhh8qp8om156nbclk6fbtv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
