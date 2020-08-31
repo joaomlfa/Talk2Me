@@ -54,10 +54,11 @@
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="8dp"
-        android:textColor="@android:color/white"
         android:background="@drawable/bordas_arredondadas"
+        android:onClick="chamaTelaCadastro"
 
         android:text="Cadastre-se"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
