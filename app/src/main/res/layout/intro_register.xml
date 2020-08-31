@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,11 +7,27 @@
     android:layout_height="match_parent"
     android:background="@color/colorVermelhoPastel">
 
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bordas_arredondadas"
+        android:text="Cadastre-se"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/google_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:text="cadastre se" />
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/talk_to_me"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:contentDescription="crie sua conta grátis"
         android:text="Crie sua conta grátis"
         android:textColor="@color/colorBlack"
         android:textSize="18sp"
@@ -35,42 +53,40 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
-        android:text="Venha fazer parte dessa comunidade \n estamos aqui por você."
+        android:text="Venha fazer parte dessa comunidade. \n Estamos aqui por você."
         android:textColor="@android:color/darker_gray"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        tools:text="Venha fazer parte dessa comunidade. \n Estamos aqui por você." />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
+    <com.shobhitpuri.custombuttons.GoogleSignInButton
+        android:id="@+id/google_button"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="8dp"
-        android:textColor="@android:color/white"
-        android:background="@drawable/bordas_arredondadas"
-
-        android:text="Cadastre-se"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="32dp"
+        android:onClick="googlebuttonLogin"
+        android:text="Login com google"
+        app:isDarkTheme="false"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/darker_gray"
         android:text="Já tenho conta"
+        android:textColor="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/google_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
