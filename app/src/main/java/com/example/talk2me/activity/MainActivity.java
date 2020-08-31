@@ -173,4 +173,9 @@ public class MainActivity extends IntroActivity {
     public void buttonRegisterClick(View view){
         startActivity(new Intent(this, RegisterActivity.class));
     }
+
+    public void chamaTelaCadastro(View view){
+        Intent intent = new Intent(getApplicationContext(), com.example.talk2me.Activity.CadastroActivity.class);
+        startActivity(intent);
+    }
 }
