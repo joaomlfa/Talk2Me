@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "693539924409-lq93tp9mb6a6srbuktmiecguneig2qbe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.talk2me",
+            "certificate_hash": "9f40a24acd79bc532d556320643a7d0f5e8c9390"
+          }
+        },
+        {
           "client_id": "693539924409-qe4n1sj1dmmj1l41gonr5ip1oprjc8gc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
