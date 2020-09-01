@@ -1,11 +1,11 @@
 package com.example.talk2me.activity;
 
-import androidx.annotation.NonNull;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.example.talk2me.R;
 import com.example.talk2me.activity.Activity.MainScreen;
@@ -140,8 +140,7 @@ public class MainActivity extends IntroActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("signInCredential", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
-                            // Redirecionar para tela Principal
+                            mainScreenRedirect();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("signInCredential", "signInWithCredential:failure", task.getException());
@@ -166,16 +165,11 @@ public class MainActivity extends IntroActivity {
         }else{
             Log.i("signInUser","Usuário  Logado");
             //redirecionar para tela principal
-            //mainScreenRedirect();
+            mainScreenRedirect();
         }
     }
 
     public void buttonRegisterClick(View view){
         startActivity(new Intent(this, RegisterActivity.class));
-    }
-
-    public void chamaTelaCadastro(View view){
-        Intent intent = new Intent(getApplicationContext(), com.example.talk2me.Activity.CadastroActivity.class);
-        startActivity(intent);
     }
 }
