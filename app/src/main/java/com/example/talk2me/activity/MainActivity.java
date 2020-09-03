@@ -166,7 +166,7 @@ public class MainActivity extends IntroActivity {
         }else{
             Log.i("signInUser","Usuário  Logado");
             //redirecionar para tela principal
-            mainScreenRedirect();
+            //mainScreenRedirect();
         }
     }
 
@@ -174,4 +174,8 @@ public class MainActivity extends IntroActivity {
         startActivity(new Intent(this, RegisterActivity.class));
     }
 
+    public void chamaTelaCadastro(View view){
+        Intent intent = new Intent(getApplicationContext(), com.example.talk2me.Activity.CadastroActivity.class);
+        startActivity(intent);
+    }
 }
