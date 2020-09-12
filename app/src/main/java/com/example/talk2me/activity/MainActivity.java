@@ -36,10 +36,9 @@ public class MainActivity extends IntroActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //region User Configuration
         googleSignInButton = findViewById(R.id.google_button);
         mAuth = FirebaseConfig.getFirebaseAuth();
-
-
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -48,8 +47,8 @@ public class MainActivity extends IntroActivity {
                 .build();
         // Build a GoogleSignInClient with the options specified by gso.
         gsc = GoogleSignIn.getClient(this, gso);
-
-        //Criação dos Sliders da tela Inicial
+        //endregion
+        // region Slider Creation
         setFullscreen(true); //Setando a tela como FullScreen
         setButtonBackVisible(false); //Removendo botão de back e next
         setButtonNextVisible(false);
@@ -87,6 +86,7 @@ public class MainActivity extends IntroActivity {
                 .canGoForward(false)
                 .build()
         );
+        //endregion
     }
 
     public void googlebuttonLogin(View view){
@@ -172,10 +172,5 @@ public class MainActivity extends IntroActivity {
 
     public void buttonRegisterClick(View view){
         startActivity(new Intent(this, RegisterActivity.class));
-    }
-
-    public void chamaTelaCadastro(View view){
-        Intent intent = new Intent(getApplicationContext(), com.example.talk2me.Activity.CadastroActivity.class);
-        startActivity(intent);
     }
 }
