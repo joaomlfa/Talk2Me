@@ -1,22 +1,31 @@
-package com.example.talk2me.activity.User;
+package com.example.talk2me.activity.Model;
+
+import com.example.talk2me.activity.Config.FirebaseConfig;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 
 public class User {
 
-    private String nome, sobrenome, dtNascimento, sexo, email, senha;
+    private String id, nome, sobrenome, dtNascimento, sexo, email, senha;
 
+    // Constructor
     public User() {
 
     }
 
-    // Constructor
-    public User(String nome, String sobrenome, String dtNascimento, String sexo, String email,
-                String senha) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.dtNascimento = dtNascimento;
-        this.sexo = sexo;
-        this.email = email;
-        this.senha = senha;
+    // This method saves user in the database
+    public void saveUserInDatabase(){
+        DatabaseReference databaseReference = FirebaseConfig.getFirebase();
+        databaseReference.child("users").child(getId()).setValue(this);
+    }
+
+    @Exclude
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNome() {
