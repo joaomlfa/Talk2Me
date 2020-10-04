@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     //region Variables
     private TextInputLayout tilSenha, tilSenha2, tilSobrenome, tilNome, tilNascimento, tilEmail;
     private String senha, senha2, nome, sobrenome, dtNascimento, email, sexo;
-    private TextView txfNascimento;
+    private TextView txfNascimento, txfNome, txfSobrenome, txfSenha, txfSenha2, txfEmail;
     private RadioGroup rgpSexo;
     private User user;
 
@@ -48,8 +51,16 @@ public class RegisterActivity extends AppCompatActivity {
         tilSobrenome = findViewById(R.id.tilSobrenome);
         tilNome = findViewById(R.id.tilNome);
         tilNascimento = findViewById(R.id.tilNascimento);
-        txfNascimento = findViewById(R.id.txfNascimento);
         tilEmail = findViewById(R.id.tilEmail);
+
+        txfNascimento = findViewById(R.id.txfNascimento);
+        txfNome = findViewById(R.id.txfNome);
+        txfSenha = findViewById(R.id.txfSenha);
+        txfSobrenome = findViewById(R.id.txfSobrenome);
+        txfEmail = findViewById(R.id.txfEmail);
+        txfSenha = findViewById(R.id.txfSenha);
+        txfSenha2 = findViewById(R.id.txfSenha2);
+
         rgpSexo = findViewById(R.id.rgpSexo);
         //endregion
 
@@ -60,6 +71,113 @@ public class RegisterActivity extends AppCompatActivity {
         MaskTextWatcher mtw = new MaskTextWatcher(txfNascimento, smf);
         txfNascimento.addTextChangedListener(mtw);
         //endregion
+
+        // region TextWatchers for activity_register fields
+        txfNome.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                nome = txfNome.getText().toString();
+                isValidName();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txfSobrenome.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                sobrenome = txfSobrenome.getText().toString();
+                isValidLastName();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txfEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                email = txfEmail.getText().toString();
+                isValidEmail();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txfNascimento.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                dtNascimento = txfNascimento.getText().toString();
+                isValidDate();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txfSenha.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                senha = txfSenha.getText().toString();
+                senha2 = txfSenha2.getText().toString();
+                isValidPassword();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        txfSenha2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                senha = txfSenha.getText().toString();
+                senha2 = txfSenha2.getText().toString();
+                isValidPassword();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        //endregion
     }
 
     // This method applied on the activity_register btnRegister onClick
@@ -67,12 +185,12 @@ public class RegisterActivity extends AppCompatActivity {
     public void createUser(View view){
 
         // region Getting value of view elements
-        nome = tilNome.getEditText().getText().toString();
-        senha = tilSenha.getEditText().getText().toString();
-        senha2 = tilSenha2.getEditText().getText().toString();
-        sobrenome = tilSobrenome.getEditText().getText().toString();
-        dtNascimento = tilNascimento.getEditText().getText().toString();
-        email = tilEmail.getEditText().getText().toString();
+        nome = txfNome.getText().toString();
+        senha = txfSenha.getText().toString();
+        senha2 = txfSenha2.getText().toString();
+        sobrenome = txfSobrenome.getText().toString();
+        dtNascimento = txfNascimento.getText().toString();
+        email = txfEmail.getText().toString();
         sexo = getSelectedRbt();//Getting the value of the selected RadioButton
         //endregion
 
@@ -135,7 +253,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     //This method validates nome
     public boolean isValidName(){
-        if (nome.length() <= 3) {
+        if (nome.length() < 3) {
             tilNome.setError("Nome precisa ter pelo menos 3 caracteres.");
             return false;
         } else {
@@ -146,7 +264,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // This method validates sobrenome
     public boolean isValidLastName(){
-        if (sobrenome.length() <= 3) {
+        if (sobrenome.length() < 3) {
             tilSobrenome.setError("Nome precisa ter pelo menos 3 caracteres.");
             return false;
         } else {
@@ -203,7 +321,6 @@ public class RegisterActivity extends AppCompatActivity {
             tilNascimento.setError("Data inválida.");
             return false;
         }
-
         tilNascimento.setErrorEnabled(false);
         return true;
     }
